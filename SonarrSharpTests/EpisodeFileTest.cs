@@ -2,7 +2,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 using SonarrSharp;
 
-using SonarrSharpUnitTest.Properties;
+using SonarrSharpTests.Properties;
 
 using System;
 using System.Threading.Tasks;
