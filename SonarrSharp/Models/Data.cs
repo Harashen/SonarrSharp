@@ -1,4 +1,4 @@
-﻿using J = Newtonsoft.Json.JsonPropertyAttribute;
+using System.Text.Json.Serialization;
 
 namespace SonarrSharp.Models
 {
@@ -13,7 +13,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The dropped path.
         /// </value>
-        [J("droppedPath")] public string DroppedPath { get; set; }
+        [JsonPropertyName("droppedPath")] public string DroppedPath { get; set; }
 
         /// <summary>
         /// Gets or sets the imported path.
@@ -21,7 +21,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The imported path.
         /// </value>
-        [J("importedPath")] public string ImportedPath { get; set; }
+        [JsonPropertyName("importedPath")] public string ImportedPath { get; set; }
 
         /// <summary>
         /// Gets or sets the download client.
@@ -29,7 +29,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The download client.
         /// </value>
-        [J("downloadClient")] public string DownloadClient { get; set; }
+        [JsonPropertyName("downloadClient")] public string DownloadClient { get; set; }
 
         /// <summary>
         /// Gets or sets the reason.
@@ -37,6 +37,6 @@ namespace SonarrSharp.Models
         /// <value>
         /// The reason.
         /// </value>
-        [J("reason")] public string Reason { get; set; }
+        [JsonPropertyName("reason")] public string Reason { get; set; }
     }
 }

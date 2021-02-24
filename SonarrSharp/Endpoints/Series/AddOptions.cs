@@ -1,4 +1,4 @@
-﻿using J = Newtonsoft.Json.JsonPropertyAttribute;
+using System.Text.Json.Serialization;
 
 namespace SonarrSharp.Endpoints.Series
 {
@@ -13,7 +13,7 @@ namespace SonarrSharp.Endpoints.Series
         /// <value>
         ///   <c>true</c> if [ignore episodes with files]; otherwise, <c>false</c>.
         /// </value>
-        [J("ignoreEpisodesWithFiles")] public bool IgnoreEpisodesWithFiles { get; set; }
+        [JsonPropertyName("ignoreEpisodesWithFiles")] public bool IgnoreEpisodesWithFiles { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether [ignore episodes without files].
@@ -21,7 +21,7 @@ namespace SonarrSharp.Endpoints.Series
         /// <value>
         ///   <c>true</c> if [ignore episodes without files]; otherwise, <c>false</c>.
         /// </value>
-        [J("ignoreEpisodesWithoutFiles")] public bool IgnoreEpisodesWithoutFiles { get; set; }
+        [JsonPropertyName("ignoreEpisodesWithoutFiles")] public bool IgnoreEpisodesWithoutFiles { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether [search for missing episodes].
@@ -29,6 +29,6 @@ namespace SonarrSharp.Endpoints.Series
         /// <value>
         ///   <c>true</c> if [search for missing episodes]; otherwise, <c>false</c>.
         /// </value>
-        [J("searchForMissingEpisodes")] public bool SearchForMissingEpisodes { get; set; }
+        [JsonPropertyName("searchForMissingEpisodes")] public bool SearchForMissingEpisodes { get; set; }
     }
 }

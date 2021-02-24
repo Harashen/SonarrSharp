@@ -1,17 +1,18 @@
-﻿using Newtonsoft.Json;
 using SonarrSharp.Helpers;
+
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace SonarrSharp.Endpoints.Wanted
 {
     /// <summary>
     /// Wanted endpoint client
-    /// </summary>
-    public class Wanted : IWanted
+	/// </summary>
+	public class Wanted : IWanted
     {
-        private SonarrClient _sonarrClient;
+        private readonly SonarrClient _sonarrClient;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Wanted"/> class.
@@ -47,7 +48,7 @@ namespace SonarrSharp.Endpoints.Wanted
                 param.Add("sortDir", sortDirection);
 
             var json = await _sonarrClient.GetJson($"/wanted/missing{ParameterHelper.BuildParameterString(param)}");
-            return await Task.Run(() => JsonConvert.DeserializeObject<Models.Wanted>(json, Converter.Settings));
+            return await Task.Run(() => JsonSerializer.Deserialize<Models.Wanted>(json, Converter.Settings));
         }
 
         /// <summary>
@@ -75,7 +76,7 @@ namespace SonarrSharp.Endpoints.Wanted
                 param.Add("sortDir", sortDirection);
 
             var json = await _sonarrClient.GetJson($"/wanted/cutoff{ParameterHelper.BuildParameterString(param)}");
-            return await Task.Run(() => JsonConvert.DeserializeObject<Models.WantedCutoff>(json, Converter.Settings));
+            return await Task.Run(() => JsonSerializer.Deserialize<Models.WantedCutoff>(json, Converter.Settings));
         }
     }
 }

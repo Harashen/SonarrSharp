@@ -1,6 +1,7 @@
-﻿using SonarrSharp.Enum;
+using SonarrSharp.Enum;
+
 using System;
-using J = Newtonsoft.Json.JsonPropertyAttribute;
+using System.Text.Json.Serialization;
 
 namespace SonarrSharp.Models
 {
@@ -15,7 +16,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The time.
         /// </value>
-        [J("time")] public DateTimeOffset Time { get; set; }
+        [JsonPropertyName("time")] public DateTimeOffset Time { get; set; }
 
         /// <summary>
         /// Gets or sets the level.
@@ -23,7 +24,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The level.
         /// </value>
-        [J("level")] public Level Level { get; set; }
+        [JsonPropertyName("level")] public Level Level { get; set; }
 
         /// <summary>
         /// Gets or sets the logger.
@@ -31,7 +32,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The logger.
         /// </value>
-        [J("logger")] public string Logger { get; set; }
+        [JsonPropertyName("logger")] public string Logger { get; set; }
 
         /// <summary>
         /// Gets or sets the message.
@@ -39,7 +40,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The message.
         /// </value>
-        [J("message")] public string Message { get; set; }
+        [JsonPropertyName("message")] public string Message { get; set; }
 
         /// <summary>
         /// Gets or sets the identifier.
@@ -47,6 +48,6 @@ namespace SonarrSharp.Models
         /// <value>
         /// The identifier.
         /// </value>
-        [J("id")] public int Id { get; set; }
+        [JsonPropertyName("id")] public int Id { get; set; }
     }
 }

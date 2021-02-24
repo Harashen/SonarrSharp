@@ -1,17 +1,18 @@
-﻿using Newtonsoft.Json;
 using SonarrSharp.Helpers;
+
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace SonarrSharp.Endpoints.Series
 {
     /// <summary>
     /// Series endpoint client
-    /// </summary>
-    public class Series : ISeries
+	/// </summary>
+	public class Series : ISeries
     {
-        private SonarrClient _sonarrClient;
+        private readonly SonarrClient _sonarrClient;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Series"/> class.
@@ -30,7 +31,7 @@ namespace SonarrSharp.Endpoints.Series
         public async Task<List<Models.Series>> GetSeries([Optional] bool includeSeasonImages)
         {
             var json = await _sonarrClient.GetJson($"/series{(includeSeasonImages ? $"?includeSeasonImages={includeSeasonImages}" : "")}");
-            return await Task.Run(() => JsonConvert.DeserializeObject<List<Models.Series>>(json, Converter.Settings));
+            return await Task.Run(() => JsonSerializer.Deserialize<List<Models.Series>>(json, Converter.Settings));
         }
 
         /// <summary>
@@ -42,7 +43,7 @@ namespace SonarrSharp.Endpoints.Series
         public async Task<Models.Series> GetSeries(int seriesId, [Optional] bool includeSeasonImages)
         {
             var json = await _sonarrClient.GetJson($"/series/id={seriesId}{(includeSeasonImages ? $"?includeSeasonImages={includeSeasonImages}" : "")}");
-            return await Task.Run(() => JsonConvert.DeserializeObject<Models.Series>(json, Converter.Settings));
+            return await Task.Run(() => JsonSerializer.Deserialize<Models.Series>(json, Converter.Settings));
         }
 
         /// <summary>
@@ -85,10 +86,10 @@ namespace SonarrSharp.Endpoints.Series
             if (addOptions != null)
                 dictionary.Add("addOptions", addOptions);
 
-            string parameter = JsonConvert.SerializeObject(new Dictionary<string, object>(dictionary));
+            string parameter = JsonSerializer.Serialize(new Dictionary<string, object>(dictionary));
 
             var json = await _sonarrClient.PostJson("/series", parameter, "POST");
-            return await Task.Run(() => JsonConvert.DeserializeObject<Models.Series>(json, Converter.Settings));
+            return await Task.Run(() => JsonSerializer.Deserialize<Models.Series>(json, Converter.Settings));
         }
 
         /// <summary>
@@ -98,8 +99,8 @@ namespace SonarrSharp.Endpoints.Series
         /// <returns></returns>
         public async Task<Models.Series> UpdateSeries(Models.Series series)
         {
-            var json = await _sonarrClient.PostJson("/series", JsonConvert.SerializeObject(series, Converter.Settings), "PUT");
-            return await Task.Run(() => JsonConvert.DeserializeObject<Models.Series>(json, Converter.Settings));
+            var json = await _sonarrClient.PostJson("/series", JsonSerializer.Serialize(series, Converter.Settings), "PUT");
+            return await Task.Run(() => JsonSerializer.Deserialize<Models.Series>(json, Converter.Settings));
         }
 
         /// <summary>

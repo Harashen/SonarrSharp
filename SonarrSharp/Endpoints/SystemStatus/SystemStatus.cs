@@ -1,15 +1,16 @@
-﻿using Newtonsoft.Json;
 using SonarrSharp.Helpers;
+
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace SonarrSharp.Endpoints.SystemStatus
 {
     /// <summary>
     /// SystemStatus endpoint client
-    /// </summary>
-    public class SystemStatus : ISystemStatus
+	/// </summary>
+	public class SystemStatus : ISystemStatus
     {
-        private SonarrClient _sonarrClient;
+        private readonly SonarrClient _sonarrClient;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SystemStatus"/> class.
@@ -27,7 +28,7 @@ namespace SonarrSharp.Endpoints.SystemStatus
         public async Task<Models.SystemStatus> GetSystemStatus()
         {
             var json = await _sonarrClient.GetJson("/system/status");
-            return await Task.Run(() => JsonConvert.DeserializeObject<Models.SystemStatus>(json, Converter.Settings));
+            return await Task.Run(() => JsonSerializer.Deserialize<Models.SystemStatus>(json, Converter.Settings));
         }
     }
 }

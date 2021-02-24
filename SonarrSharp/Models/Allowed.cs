@@ -1,4 +1,4 @@
-﻿using J = Newtonsoft.Json.JsonPropertyAttribute;
+using System.Text.Json.Serialization;
 
 namespace SonarrSharp.Models
 {
@@ -13,7 +13,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The identifier.
         /// </value>
-        [J("id")] public int Id { get; set; }
+        [JsonPropertyName("id")] public int Id { get; set; }
 
         /// <summary>
         /// Gets or sets the name.
@@ -21,7 +21,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The name.
         /// </value>
-        [J("name")] public string Name { get; set; }
+        [JsonPropertyName("name")] public string Name { get; set; }
 
         /// <summary>
         /// Gets or sets the weight.
@@ -29,6 +29,6 @@ namespace SonarrSharp.Models
         /// <value>
         /// The weight.
         /// </value>
-        [J("weight")] public long Weight { get; set; }
+        [JsonPropertyName("weight")] public long Weight { get; set; }
     }
 }

@@ -1,17 +1,18 @@
-﻿using Newtonsoft.Json;
 using SonarrSharp.Helpers;
+
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace SonarrSharp.Endpoints.Queue
 {
     /// <summary>
     /// Queue endpoint client
-    /// </summary>
-    public class Queue : IQueue
+	/// </summary>
+	public class Queue : IQueue
     {
-        private SonarrClient _sonarrClient;
+        private readonly SonarrClient _sonarrClient;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Queue"/> class.
@@ -29,7 +30,7 @@ namespace SonarrSharp.Endpoints.Queue
         public async Task<List<Models.Queue>> GetQueue()
         {
             var json = await _sonarrClient.GetJson($"/queue");
-            return await Task.Run(() => JsonConvert.DeserializeObject<List<Models.Queue>>(json, Converter.Settings));
+            return await Task.Run(() => JsonSerializer.Deserialize<List<Models.Queue>>(json, Converter.Settings));
         }
 
         /// <summary>

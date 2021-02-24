@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using J = Newtonsoft.Json.JsonPropertyAttribute;
+using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace SonarrSharp.Models
 {
@@ -14,7 +14,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The title.
         /// </value>
-        [J("title")] public string Title { get; set; }
+        [JsonPropertyName("title")] public string Title { get; set; }
 
         /// <summary>
         /// Gets or sets the parsed episode information.
@@ -22,7 +22,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The parsed episode information.
         /// </value>
-        [J("parsedEpisodeInfo")] public ParsedEpisodeInfo ParsedEpisodeInfo { get; set; }
+        [JsonPropertyName("parsedEpisodeInfo")] public ParsedEpisodeInfo ParsedEpisodeInfo { get; set; }
 
         /// <summary>
         /// Gets or sets the series.
@@ -30,7 +30,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The series.
         /// </value>
-        [J("series")] public Series Series { get; set; }
+        [JsonPropertyName("series")] public Series Series { get; set; }
 
         /// <summary>
         /// Gets or sets the episodes.
@@ -38,6 +38,6 @@ namespace SonarrSharp.Models
         /// <value>
         /// The episodes.
         /// </value>
-        [J("episodes")] public List<Episode> Episodes { get; set; }
+        [JsonPropertyName("episodes")] public List<Episode> Episodes { get; set; }
     }
 }

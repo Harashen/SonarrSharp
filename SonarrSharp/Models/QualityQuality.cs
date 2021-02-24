@@ -1,9 +1,10 @@
-﻿using SonarrSharp.Enum;
-using J = Newtonsoft.Json.JsonPropertyAttribute;
+using SonarrSharp.Enum;
+
+using System.Text.Json.Serialization;
 
 namespace SonarrSharp.Models
 {
-    /// <summary>
+	/// <summary>
     /// 
     /// </summary>
     public partial class QualityQuality
@@ -14,7 +15,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The identifier.
         /// </value>
-        [J("id")] public int Id { get; set; }
+        [JsonPropertyName("id")] public int Id { get; set; }
 
         /// <summary>
         /// Gets or sets the name.
@@ -22,6 +23,6 @@ namespace SonarrSharp.Models
         /// <value>
         /// The name.
         /// </value>
-        [J("name")] public QualityName Name { get; set; }
+        [JsonPropertyName("name")] public QualityName Name { get; set; }
     }
 }

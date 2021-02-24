@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using J = Newtonsoft.Json.JsonPropertyAttribute;
+using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace SonarrSharp.Models
 {
@@ -14,7 +14,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The path.
         /// </value>
-        [J("path")] public string Path { get; set; }
+        [JsonPropertyName("path")] public string Path { get; set; }
 
         /// <summary>
         /// Gets or sets the free space.
@@ -22,7 +22,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The free space.
         /// </value>
-        [J("freeSpace")] public long FreeSpace { get; set; }
+        [JsonPropertyName("freeSpace")] public long FreeSpace { get; set; }
 
         /// <summary>
         /// Gets or sets the unmapped folders.
@@ -30,7 +30,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The unmapped folders.
         /// </value>
-        [J("unmappedFolders")] public List<object> UnmappedFolders { get; set; }
+        [JsonPropertyName("unmappedFolders")] public List<object> UnmappedFolders { get; set; }
 
         /// <summary>
         /// Gets or sets the identifier.
@@ -38,6 +38,6 @@ namespace SonarrSharp.Models
         /// <value>
         /// The identifier.
         /// </value>
-        [J("id")] public int Id { get; set; }
+        [JsonPropertyName("id")] public int Id { get; set; }
     }
 }

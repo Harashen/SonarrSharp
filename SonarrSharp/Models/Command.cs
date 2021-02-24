@@ -1,5 +1,5 @@
-﻿using System;
-using J = Newtonsoft.Json.JsonPropertyAttribute;
+using System;
+using System.Text.Json.Serialization;
 
 namespace SonarrSharp.Models
 {
@@ -14,7 +14,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The name.
         /// </value>
-        [J("name")] public string Name { get; set; }
+        [JsonPropertyName("name")] public string Name { get; set; }
 
         /// <summary>
         /// Gets or sets the started on.
@@ -22,7 +22,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The started on.
         /// </value>
-        [J("startedOn")] public DateTimeOffset StartedOn { get; set; }
+        [JsonPropertyName("startedOn")] public DateTimeOffset StartedOn { get; set; }
 
         /// <summary>
         /// Gets or sets the state change time.
@@ -30,7 +30,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The state change time.
         /// </value>
-        [J("stateChangeTime")] public DateTimeOffset StateChangeTime { get; set; }
+        [JsonPropertyName("stateChangeTime")] public DateTimeOffset StateChangeTime { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether [send updates to client].
@@ -38,7 +38,7 @@ namespace SonarrSharp.Models
         /// <value>
         ///   <c>true</c> if [send updates to client]; otherwise, <c>false</c>.
         /// </value>
-        [J("sendUpdatesToClient")] public bool SendUpdatesToClient { get; set; }
+        [JsonPropertyName("sendUpdatesToClient")] public bool SendUpdatesToClient { get; set; }
 
         /// <summary>
         /// Gets or sets the state.
@@ -46,7 +46,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The state.
         /// </value>
-        [J("state")] public string State { get; set; }
+        [JsonPropertyName("state")] public string State { get; set; }
 
         /// <summary>
         /// Gets or sets the identifier.
@@ -54,6 +54,6 @@ namespace SonarrSharp.Models
         /// <value>
         /// The identifier.
         /// </value>
-        [J("id")] public int Id { get; set; }
+        [JsonPropertyName("id")] public int Id { get; set; }
     }
 }

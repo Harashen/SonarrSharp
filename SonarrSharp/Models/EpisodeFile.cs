@@ -1,5 +1,5 @@
-﻿using System;
-using J = Newtonsoft.Json.JsonPropertyAttribute;
+using System;
+using System.Text.Json.Serialization;
 
 namespace SonarrSharp.Models
 {
@@ -14,7 +14,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The series identifier.
         /// </value>
-        [J("seriesId")] public int SeriesId { get; set; }
+        [JsonPropertyName("seriesId")] public int SeriesId { get; set; }
 
         /// <summary>
         /// Gets or sets the season number.
@@ -22,7 +22,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The season number.
         /// </value>
-        [J("seasonNumber")] public int SeasonNumber { get; set; }
+        [JsonPropertyName("seasonNumber")] public int SeasonNumber { get; set; }
 
         /// <summary>
         /// Gets or sets the path.
@@ -30,7 +30,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The path.
         /// </value>
-        [J("path")] public string Path { get; set; }
+        [JsonPropertyName("path")] public string Path { get; set; }
 
         /// <summary>
         /// Gets or sets the size.
@@ -38,7 +38,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The size.
         /// </value>
-        [J("size")] public long Size { get; set; }
+        [JsonPropertyName("size")] public long Size { get; set; }
 
         /// <summary>
         /// Gets or sets the date added.
@@ -46,7 +46,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The date added.
         /// </value>
-        [J("dateAdded")] public DateTimeOffset DateAdded { get; set; }
+        [JsonPropertyName("dateAdded")] public DateTimeOffset DateAdded { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the scene.
@@ -54,7 +54,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The name of the scene.
         /// </value>
-        [J("sceneName")] public string SceneName { get; set; }
+        [JsonPropertyName("sceneName")] public string SceneName { get; set; }
 
         /// <summary>
         /// Gets or sets the quality.
@@ -62,7 +62,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The quality.
         /// </value>
-        [J("quality")] public EpisodeFileQuality Quality { get; set; }
+        [JsonPropertyName("quality")] public EpisodeFileQuality Quality { get; set; }
 
         /// <summary>
         /// Gets or sets the identifier.
@@ -70,6 +70,6 @@ namespace SonarrSharp.Models
         /// <value>
         /// The identifier.
         /// </value>
-        [J("id")] public int Id { get; set; }
+        [JsonPropertyName("id")] public int Id { get; set; }
     }
 }

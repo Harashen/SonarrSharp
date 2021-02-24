@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using J = Newtonsoft.Json.JsonPropertyAttribute;
+using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace SonarrSharp.Models
 {
@@ -14,7 +14,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The release title.
         /// </value>
-        [J("releaseTitle")] public string ReleaseTitle { get; set; }
+        [JsonPropertyName("releaseTitle")] public string ReleaseTitle { get; set; }
 
         /// <summary>
         /// Gets or sets the series title.
@@ -22,7 +22,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The series title.
         /// </value>
-        [J("seriesTitle")] public string SeriesTitle { get; set; }
+        [JsonPropertyName("seriesTitle")] public string SeriesTitle { get; set; }
 
         /// <summary>
         /// Gets or sets the series title information.
@@ -30,7 +30,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The series title information.
         /// </value>
-        [J("seriesTitleInfo")] public SeriesTitleInfo SeriesTitleInfo { get; set; }
+        [JsonPropertyName("seriesTitleInfo")] public SeriesTitleInfo SeriesTitleInfo { get; set; }
 
         /// <summary>
         /// Gets or sets the quality.
@@ -38,7 +38,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The quality.
         /// </value>
-        [J("quality")] public ParsedEpisodeInfoQuality Quality { get; set; }
+        [JsonPropertyName("quality")] public ParsedEpisodeInfoQuality Quality { get; set; }
 
         /// <summary>
         /// Gets or sets the season number.
@@ -46,7 +46,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The season number.
         /// </value>
-        [J("seasonNumber")] public int SeasonNumber { get; set; }
+        [JsonPropertyName("seasonNumber")] public int SeasonNumber { get; set; }
 
         /// <summary>
         /// Gets or sets the episode numbers.
@@ -54,7 +54,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The episode numbers.
         /// </value>
-        [J("episodeNumbers")] public List<int> EpisodeNumbers { get; set; }
+        [JsonPropertyName("episodeNumbers")] public List<int> EpisodeNumbers { get; set; }
 
         /// <summary>
         /// Gets or sets the absolute episode numbers.
@@ -62,7 +62,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The absolute episode numbers.
         /// </value>
-        [J("absoluteEpisodeNumbers")] public List<object> AbsoluteEpisodeNumbers { get; set; }
+        [JsonPropertyName("absoluteEpisodeNumbers")] public List<object> AbsoluteEpisodeNumbers { get; set; }
 
         /// <summary>
         /// Gets or sets the language.
@@ -70,7 +70,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The language.
         /// </value>
-        [J("language")] public string Language { get; set; }
+        [JsonPropertyName("language")] public string Language { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether [full season].
@@ -78,7 +78,7 @@ namespace SonarrSharp.Models
         /// <value>
         ///   <c>true</c> if [full season]; otherwise, <c>false</c>.
         /// </value>
-        [J("fullSeason")] public bool FullSeason { get; set; }
+        [JsonPropertyName("fullSeason")] public bool FullSeason { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether this <see cref="ParsedEpisodeInfo"/> is special.
@@ -86,7 +86,7 @@ namespace SonarrSharp.Models
         /// <value>
         ///   <c>true</c> if special; otherwise, <c>false</c>.
         /// </value>
-        [J("special")] public bool Special { get; set; }
+        [JsonPropertyName("special")] public bool Special { get; set; }
 
         /// <summary>
         /// Gets or sets the release group.
@@ -94,7 +94,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The release group.
         /// </value>
-        [J("releaseGroup")] public string ReleaseGroup { get; set; }
+        [JsonPropertyName("releaseGroup")] public string ReleaseGroup { get; set; }
 
         /// <summary>
         /// Gets or sets the release hash.
@@ -102,7 +102,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The release hash.
         /// </value>
-        [J("releaseHash")] public string ReleaseHash { get; set; }
+        [JsonPropertyName("releaseHash")] public string ReleaseHash { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether this instance is daily.
@@ -110,7 +110,7 @@ namespace SonarrSharp.Models
         /// <value>
         ///   <c>true</c> if this instance is daily; otherwise, <c>false</c>.
         /// </value>
-        [J("isDaily")] public bool IsDaily { get; set; }
+        [JsonPropertyName("isDaily")] public bool IsDaily { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether this instance is absolute numbering.
@@ -118,7 +118,7 @@ namespace SonarrSharp.Models
         /// <value>
         ///   <c>true</c> if this instance is absolute numbering; otherwise, <c>false</c>.
         /// </value>
-        [J("isAbsoluteNumbering")] public bool IsAbsoluteNumbering { get; set; }
+        [JsonPropertyName("isAbsoluteNumbering")] public bool IsAbsoluteNumbering { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether this instance is possible special episode.
@@ -126,6 +126,6 @@ namespace SonarrSharp.Models
         /// <value>
         ///   <c>true</c> if this instance is possible special episode; otherwise, <c>false</c>.
         /// </value>
-        [J("isPossibleSpecialEpisode")] public bool IsPossibleSpecialEpisode { get; set; }
+        [JsonPropertyName("isPossibleSpecialEpisode")] public bool IsPossibleSpecialEpisode { get; set; }
     }
 }

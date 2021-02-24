@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using J = Newtonsoft.Json.JsonPropertyAttribute;
+using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace SonarrSharp.Models
 {
@@ -14,7 +14,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The season number.
         /// </value>
-        [J("seasonNumber")] public int SeasonNumber { get; set; }
+        [JsonPropertyName("seasonNumber")] public int SeasonNumber { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether this <see cref="Season"/> is monitored.
@@ -22,7 +22,7 @@ namespace SonarrSharp.Models
         /// <value>
         ///   <c>true</c> if monitored; otherwise, <c>false</c>.
         /// </value>
-        [J("monitored")] public bool Monitored { get; set; }
+        [JsonPropertyName("monitored")] public bool Monitored { get; set; }
 
         /// <summary>
         /// Gets or sets the statistics.
@@ -30,7 +30,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The statistics.
         /// </value>
-        [J("statistics")] public Statistics Statistics { get; set; }
+        [JsonPropertyName("statistics")] public Statistics Statistics { get; set; }
 
         /// <summary>
         /// Gets or sets the images.
@@ -38,6 +38,6 @@ namespace SonarrSharp.Models
         /// <value>
         /// The images.
         /// </value>
-        [J("images")] public List<Image> Images { get; set; }
+        [JsonPropertyName("images")] public List<Image> Images { get; set; }
     }
 }
