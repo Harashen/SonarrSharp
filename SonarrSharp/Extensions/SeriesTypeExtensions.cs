@@ -21,9 +21,10 @@ namespace SonarrSharp.Extensions
         public static SeriesType ReadJson(Utf8JsonReader reader)
         {
             var str = JsonSerializer.Deserialize<string>(ref reader);
-            var maybeValue = ValueForString(str);
-            if (maybeValue.HasValue) return maybeValue.Value;
-            throw new Exception("Unknown enum case " + str);
+            if (System.Enum.TryParse(str, out SeriesType type) && System.Enum.IsDefined(typeof(SeriesType), type))
+                return type;
+
+            throw new Exception("Unknown SeriesType \"" + str + "\"");
         }
 
         public static void WriteJson(this SeriesType value, Utf8JsonWriter writer)
