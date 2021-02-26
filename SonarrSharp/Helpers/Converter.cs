@@ -13,20 +13,20 @@ namespace SonarrSharp.Helpers
 		public override bool CanConvert(Type t)
 		{
 			return t == typeof(Level) ||
-t == typeof(CoverType) ||
-t == typeof(SeriesType) ||
-t == typeof(Status) ||
-            t == typeof(SystemBackupType) ||
-            t == typeof(Protocol) ||
-            t == typeof(QualityName) ||
-
-            t == typeof(Level?) ||
-            t == typeof(CoverType?) ||
-            t == typeof(SeriesType?) ||
-            t == typeof(Status?) ||
-t == typeof(SystemBackupType?) ||
-t == typeof(Protocol?) ||
-t == typeof(QualityName?);
+             t == typeof(CoverType) ||
+             t == typeof(SeriesType) ||
+             t == typeof(Status) ||
+             t == typeof(SystemBackupType) ||
+             t == typeof(Protocol) ||
+             t == typeof(QualityName) ||
+             
+             t == typeof(Level?) ||
+             t == typeof(CoverType?) ||
+             t == typeof(SeriesType?) ||
+             t == typeof(Status?) ||
+             t == typeof(SystemBackupType?) ||
+             t == typeof(Protocol?) ||
+             t == typeof(QualityName?);
 		}
 
 		public override object Read(ref Utf8JsonReader reader, Type t, JsonSerializerOptions options)
