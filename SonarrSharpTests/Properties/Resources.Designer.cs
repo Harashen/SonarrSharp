@@ -70,7 +70,7 @@ namespace SonarrSharpTests.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 192.168.1.142.
+        ///   Looks up a localized string similar to omv.local.
         /// </summary>
         internal static string Host {
             get {

@@ -118,15 +118,15 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ApiKey" xml:space="preserve">
-    <value>8cf46010edd345e8a5414d78a0cbd2ff</value>
+    <value>e2a174aa380945cab8d7fa2658df301a</value>
   </data>
   <data name="Host" xml:space="preserve">
-    <value>localhost</value>
+    <value>omv.local</value>
   </data>
   <data name="Port" xml:space="preserve">
-    <value>8990</value>
+    <value>8989</value>
   </data>
   <data name="UrlBase" xml:space="preserve">
-    <value>sonarr</value>
+    <value />
   </data>
 </root>
