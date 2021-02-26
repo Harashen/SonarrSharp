@@ -1,19 +1,20 @@
-﻿using Newtonsoft.Json;
 using SonarrSharp.Helpers;
+
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace SonarrSharp.Endpoints.Log
 {
     /// <summary>
     /// Log endpoint client
-    /// </summary>
-    public class Log : ILog
+	/// </summary>
+	public class Log : ILog
     {
-        private SonarrClient _sonarrClient;
+        private readonly SonarrClient _sonarrClient;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Log"/> class.
@@ -31,7 +32,7 @@ namespace SonarrSharp.Endpoints.Log
         public async Task<List<Models.LogFile>> GetLogFiles()
         {
             var json = await _sonarrClient.GetJson("/log/file");
-            return await Task.Run(() => JsonConvert.DeserializeObject<List<Models.LogFile>>(json, Converter.Settings));
+            return await Task.Run(() => JsonSerializer.Deserialize<List<Models.LogFile>>(json, Converter.Settings));
         }
 
         /// <summary>
@@ -65,7 +66,7 @@ namespace SonarrSharp.Endpoints.Log
         public async Task<Models.Log> GetLog()
         {
             var json = await _sonarrClient.GetJson("/log");
-            return await Task.Run(() => JsonConvert.DeserializeObject<Models.Log>(json, Converter.Settings));
+            return await Task.Run(() => JsonSerializer.Deserialize<Models.Log>(json, Converter.Settings));
         }
     }
 }

@@ -1,7 +1,8 @@
-﻿using SonarrSharp.Enum;
+using SonarrSharp.Enum;
+
 using System;
 using System.Collections.Generic;
-using J = Newtonsoft.Json.JsonPropertyAttribute;
+using System.Text.Json.Serialization;
 
 namespace SonarrSharp.Models
 {
@@ -16,7 +17,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The title.
         /// </value>
-        [J("title")] public string Title { get; set; }
+        [JsonPropertyName("title")] public string Title { get; set; }
 
         /// <summary>
         /// Gets or sets the sort title.
@@ -24,7 +25,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The sort title.
         /// </value>
-        [J("sortTitle")] public string SortTitle { get; set; }
+        [JsonPropertyName("sortTitle")] public string SortTitle { get; set; }
 
         /// <summary>
         /// Gets or sets the season count.
@@ -32,7 +33,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The season count.
         /// </value>
-        [J("seasonCount")] public int SeasonCount { get; set; }
+        [JsonPropertyName("seasonCount")] public int SeasonCount { get; set; }
 
         /// <summary>
         /// Gets or sets the status.
@@ -40,7 +41,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The status.
         /// </value>
-        [J("status")] public Status Status { get; set; }
+        [JsonPropertyName("status")] public Status Status { get; set; }
 
         /// <summary>
         /// Gets or sets the overview.
@@ -48,7 +49,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The overview.
         /// </value>
-        [J("overview")] public string Overview { get; set; }
+        [JsonPropertyName("overview")] public string Overview { get; set; }
 
         /// <summary>
         /// Gets or sets the network.
@@ -56,7 +57,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The network.
         /// </value>
-        [J("network")] public string Network { get; set; }
+        [JsonPropertyName("network")] public string Network { get; set; }
 
         /// <summary>
         /// Gets or sets the air time.
@@ -64,7 +65,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The air time.
         /// </value>
-        [J("airTime")] public string AirTime { get; set; }
+        [JsonPropertyName("airTime")] public string AirTime { get; set; }
 
         /// <summary>
         /// Gets or sets the images.
@@ -72,7 +73,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The images.
         /// </value>
-        [J("images")] public List<Image> Images { get; set; }
+        [JsonPropertyName("images")] public List<Image> Images { get; set; }
 
         /// <summary>
         /// Gets or sets the remote poster.
@@ -80,7 +81,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The remote poster.
         /// </value>
-        [J("remotePoster")] public string RemotePoster { get; set; }
+        [JsonPropertyName("remotePoster")] public string RemotePoster { get; set; }
 
         /// <summary>
         /// Gets or sets the seasons.
@@ -88,7 +89,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The seasons.
         /// </value>
-        [J("seasons")] public List<Season> Seasons { get; set; }
+        [JsonPropertyName("seasons")] public List<Season> Seasons { get; set; }
 
         /// <summary>
         /// Gets or sets the year.
@@ -96,7 +97,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The year.
         /// </value>
-        [J("year")] public int Year { get; set; }
+        [JsonPropertyName("year")] public int Year { get; set; }
 
         /// <summary>
         /// Gets or sets the profile identifier.
@@ -104,7 +105,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The profile identifier.
         /// </value>
-        [J("profileId")] public int ProfileId { get; set; }
+        [JsonPropertyName("profileId")] public int ProfileId { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether [season folder].
@@ -112,7 +113,7 @@ namespace SonarrSharp.Models
         /// <value>
         ///   <c>true</c> if [season folder]; otherwise, <c>false</c>.
         /// </value>
-        [J("seasonFolder")] public bool SeasonFolder { get; set; }
+        [JsonPropertyName("seasonFolder")] public bool SeasonFolder { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether this <see cref="SeriesLookup"/> is monitored.
@@ -120,7 +121,7 @@ namespace SonarrSharp.Models
         /// <value>
         ///   <c>true</c> if monitored; otherwise, <c>false</c>.
         /// </value>
-        [J("monitored")] public bool Monitored { get; set; }
+        [JsonPropertyName("monitored")] public bool Monitored { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether [use scene numbering].
@@ -128,7 +129,7 @@ namespace SonarrSharp.Models
         /// <value>
         ///   <c>true</c> if [use scene numbering]; otherwise, <c>false</c>.
         /// </value>
-        [J("useSceneNumbering")] public bool UseSceneNumbering { get; set; }
+        [JsonPropertyName("useSceneNumbering")] public bool UseSceneNumbering { get; set; }
 
         /// <summary>
         /// Gets or sets the runtime.
@@ -136,7 +137,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The runtime.
         /// </value>
-        [J("runtime")] public long Runtime { get; set; }
+        [JsonPropertyName("runtime")] public long Runtime { get; set; }
 
         /// <summary>
         /// Gets or sets the TVDB identifier.
@@ -144,7 +145,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The TVDB identifier.
         /// </value>
-        [J("tvdbId")] public int TvdbId { get; set; }
+        [JsonPropertyName("tvdbId")] public int TvdbId { get; set; }
 
         /// <summary>
         /// Gets or sets the tv rage identifier.
@@ -152,7 +153,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The tv rage identifier.
         /// </value>
-        [J("tvRageId")] public long TvRageId { get; set; }
+        [JsonPropertyName("tvRageId")] public long TvRageId { get; set; }
 
         /// <summary>
         /// Gets or sets the tv maze identifier.
@@ -160,7 +161,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The tv maze identifier.
         /// </value>
-        [J("tvMazeId")] public long TvMazeId { get; set; }
+        [JsonPropertyName("tvMazeId")] public long TvMazeId { get; set; }
 
         /// <summary>
         /// Gets or sets the first aired.
@@ -168,7 +169,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The first aired.
         /// </value>
-        [J("firstAired")] public DateTimeOffset FirstAired { get; set; }
+        [JsonPropertyName("firstAired")] public DateTimeOffset FirstAired { get; set; }
 
         /// <summary>
         /// Gets or sets the type of the series.
@@ -176,7 +177,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The type of the series.
         /// </value>
-        [J("seriesType")] public SeriesType SeriesType { get; set; }
+        [JsonPropertyName("seriesType")] public SeriesType SeriesType { get; set; }
 
         /// <summary>
         /// Gets or sets the clean title.
@@ -184,7 +185,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The clean title.
         /// </value>
-        [J("cleanTitle")] public string CleanTitle { get; set; }
+        [JsonPropertyName("cleanTitle")] public string CleanTitle { get; set; }
 
         /// <summary>
         /// Gets or sets the imdb identifier.
@@ -192,7 +193,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The imdb identifier.
         /// </value>
-        [J("imdbId")] public string ImdbId { get; set; }
+        [JsonPropertyName("imdbId")] public string ImdbId { get; set; }
 
         /// <summary>
         /// Gets or sets the title slug.
@@ -200,7 +201,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The title slug.
         /// </value>
-        [J("titleSlug")] public string TitleSlug { get; set; }
+        [JsonPropertyName("titleSlug")] public string TitleSlug { get; set; }
 
         /// <summary>
         /// Gets or sets the certification.
@@ -208,7 +209,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The certification.
         /// </value>
-        [J("certification")] public string Certification { get; set; }
+        [JsonPropertyName("certification")] public string Certification { get; set; }
 
         /// <summary>
         /// Gets or sets the genres.
@@ -216,7 +217,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The genres.
         /// </value>
-        [J("genres")] public List<string> Genres { get; set; }
+        [JsonPropertyName("genres")] public List<string> Genres { get; set; }
 
         /// <summary>
         /// Gets or sets the tags.
@@ -224,7 +225,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The tags.
         /// </value>
-        [J("tags")] public List<object> Tags { get; set; }
+        [JsonPropertyName("tags")] public List<object> Tags { get; set; }
 
         /// <summary>
         /// Gets or sets the added.
@@ -232,7 +233,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The added.
         /// </value>
-        [J("added")] public DateTimeOffset Added { get; set; }
+        [JsonPropertyName("added")] public DateTimeOffset Added { get; set; }
 
         /// <summary>
         /// Gets or sets the ratings.
@@ -240,7 +241,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The ratings.
         /// </value>
-        [J("ratings")] public Ratings Ratings { get; set; }
+        [JsonPropertyName("ratings")] public Ratings Ratings { get; set; }
 
         /// <summary>
         /// Gets or sets the quality profile identifier.
@@ -248,6 +249,6 @@ namespace SonarrSharp.Models
         /// <value>
         /// The quality profile identifier.
         /// </value>
-        [J("qualityProfileId")] public int QualityProfileId { get; set; }
+        [JsonPropertyName("qualityProfileId")] public int QualityProfileId { get; set; }
     }
 }

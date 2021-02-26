@@ -1,16 +1,17 @@
-﻿using Newtonsoft.Json;
 using SonarrSharp.Helpers;
+
 using System.Collections.Generic;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace SonarrSharp.Endpoints.Release
 {
     /// <summary>
     /// Release endpoint client
-    /// </summary>
-    public class Release : IRelease
+	/// </summary>
+	public class Release : IRelease
     {
-        private SonarrClient _sonarrClient;
+        private readonly SonarrClient _sonarrClient;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Release"/> class.
@@ -29,7 +30,7 @@ namespace SonarrSharp.Endpoints.Release
         public async Task<List<Models.Release>> GetReleases(int episodeId)
         {
             var json = await _sonarrClient.GetJson($"/release");
-            return await Task.Run(() => JsonConvert.DeserializeObject<List<Models.Release>>(json, Converter.Settings));
+            return await Task.Run(() => JsonSerializer.Deserialize<List<Models.Release>>(json, Converter.Settings));
         }
 
         /// <summary>
@@ -39,13 +40,13 @@ namespace SonarrSharp.Endpoints.Release
         /// <returns></returns>
         public async Task<List<Models.Release>> AddRelease(string guid)
         {
-            string parameter = JsonConvert.SerializeObject(new Dictionary<string, object>
+            string parameter = JsonSerializer.Serialize(new Dictionary<string, object>
             {
                 ["guid"] = guid
             });
 
             var json = await _sonarrClient.PostJson($"/release", parameter, "POST");
-            return await Task.Run(() => JsonConvert.DeserializeObject<List<Models.Release>>(json, Converter.Settings));
+            return await Task.Run(() => JsonSerializer.Deserialize<List<Models.Release>>(json, Converter.Settings));
         }
     }
 }

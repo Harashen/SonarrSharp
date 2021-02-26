@@ -1,5 +1,5 @@
-﻿using System;
-using J = Newtonsoft.Json.JsonPropertyAttribute;
+using System;
+using System.Text.Json.Serialization;
 
 namespace SonarrSharp.Models
 {
@@ -14,7 +14,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The series identifier.
         /// </value>
-        [J("seriesId")] public int SeriesId { get; set; }
+        [JsonPropertyName("seriesId")] public int SeriesId { get; set; }
 
         /// <summary>
         /// Gets or sets the episode file identifier.
@@ -22,7 +22,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The episode file identifier.
         /// </value>
-        [J("episodeFileId")] public int EpisodeFileId { get; set; }
+        [JsonPropertyName("episodeFileId")] public int EpisodeFileId { get; set; }
 
         /// <summary>
         /// Gets or sets the season number.
@@ -30,7 +30,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The season number.
         /// </value>
-        [J("seasonNumber")] public int SeasonNumber { get; set; }
+        [JsonPropertyName("seasonNumber")] public int SeasonNumber { get; set; }
 
         /// <summary>
         /// Gets or sets the episode number.
@@ -38,7 +38,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The episode number.
         /// </value>
-        [J("episodeNumber")] public int EpisodeNumber { get; set; }
+        [JsonPropertyName("episodeNumber")] public int EpisodeNumber { get; set; }
 
         /// <summary>
         /// Gets or sets the title.
@@ -46,7 +46,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The title.
         /// </value>
-        [J("title")] public string Title { get; set; }
+        [JsonPropertyName("title")] public string Title { get; set; }
 
         /// <summary>
         /// Gets or sets the air date.
@@ -54,7 +54,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The air date.
         /// </value>
-        [J("airDate")] public DateTimeOffset AirDate { get; set; }
+        [JsonPropertyName("airDate")] public DateTimeOffset AirDate { get; set; }
 
         /// <summary>
         /// Gets or sets the air date UTC.
@@ -62,7 +62,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The air date UTC.
         /// </value>
-        [J("airDateUtc")] public DateTimeOffset AirDateUtc { get; set; }
+        [JsonPropertyName("airDateUtc")] public DateTimeOffset AirDateUtc { get; set; }
 
         /// <summary>
         /// Gets or sets the overview.
@@ -70,7 +70,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The overview.
         /// </value>
-        [J("overview")] public string Overview { get; set; }
+        [JsonPropertyName("overview")] public string Overview { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether this instance has file.
@@ -78,7 +78,7 @@ namespace SonarrSharp.Models
         /// <value>
         ///   <c>true</c> if this instance has file; otherwise, <c>false</c>.
         /// </value>
-        [J("hasFile")] public bool HasFile { get; set; }
+        [JsonPropertyName("hasFile")] public bool HasFile { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether this <see cref="Episode"/> is monitored.
@@ -86,7 +86,7 @@ namespace SonarrSharp.Models
         /// <value>
         ///   <c>true</c> if monitored; otherwise, <c>false</c>.
         /// </value>
-        [J("monitored")] public bool Monitored { get; set; }
+        [JsonPropertyName("monitored")] public bool Monitored { get; set; }
 
         /// <summary>
         /// Gets or sets the scene episode number.
@@ -94,7 +94,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The scene episode number.
         /// </value>
-        [J("sceneEpisodeNumber")] public int SceneEpisodeNumber { get; set; }
+        [JsonPropertyName("sceneEpisodeNumber")] public int SceneEpisodeNumber { get; set; }
 
         /// <summary>
         /// Gets or sets the scene season number.
@@ -102,7 +102,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The scene season number.
         /// </value>
-        [J("sceneSeasonNumber")] public int SceneSeasonNumber { get; set; }
+        [JsonPropertyName("sceneSeasonNumber")] public int SceneSeasonNumber { get; set; }
 
         /// <summary>
         /// Gets or sets the tv database episode identifier.
@@ -110,7 +110,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The tv database episode identifier.
         /// </value>
-        [J("tvDbEpisodeId")] public int TvDbEpisodeId { get; set; }
+        [JsonPropertyName("tvDbEpisodeId")] public int TvDbEpisodeId { get; set; }
 
         /// <summary>
         /// Gets or sets the absolute episode number.
@@ -118,7 +118,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The absolute episode number.
         /// </value>
-        [J("absoluteEpisodeNumber")] public int AbsoluteEpisodeNumber { get; set; }
+        [JsonPropertyName("absoluteEpisodeNumber")] public int AbsoluteEpisodeNumber { get; set; }
 
         /// <summary>
         /// Gets or sets the identifier.
@@ -126,6 +126,6 @@ namespace SonarrSharp.Models
         /// <value>
         /// The identifier.
         /// </value>
-        [J("id")] public int Id { get; set; }
+        [JsonPropertyName("id")] public int Id { get; set; }
     }
 }

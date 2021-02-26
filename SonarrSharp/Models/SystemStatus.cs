@@ -1,5 +1,5 @@
-﻿using System;
-using J = Newtonsoft.Json.JsonPropertyAttribute;
+using System;
+using System.Text.Json.Serialization;
 
 namespace SonarrSharp.Models
 {
@@ -14,7 +14,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The version.
         /// </value>
-        [J("version")] public string Version { get; set; }
+        [JsonPropertyName("version")] public string Version { get; set; }
 
         /// <summary>
         /// Gets or sets the build time.
@@ -22,7 +22,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The build time.
         /// </value>
-        [J("buildTime")] public DateTimeOffset BuildTime { get; set; }
+        [JsonPropertyName("buildTime")] public DateTimeOffset BuildTime { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether this instance is debug.
@@ -30,7 +30,7 @@ namespace SonarrSharp.Models
         /// <value>
         ///   <c>true</c> if this instance is debug; otherwise, <c>false</c>.
         /// </value>
-        [J("isDebug")] public bool IsDebug { get; set; }
+        [JsonPropertyName("isDebug")] public bool IsDebug { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether this instance is production.
@@ -38,7 +38,7 @@ namespace SonarrSharp.Models
         /// <value>
         ///   <c>true</c> if this instance is production; otherwise, <c>false</c>.
         /// </value>
-        [J("isProduction")] public bool IsProduction { get; set; }
+        [JsonPropertyName("isProduction")] public bool IsProduction { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether this instance is admin.
@@ -46,7 +46,7 @@ namespace SonarrSharp.Models
         /// <value>
         ///   <c>true</c> if this instance is admin; otherwise, <c>false</c>.
         /// </value>
-        [J("isAdmin")] public bool IsAdmin { get; set; }
+        [JsonPropertyName("isAdmin")] public bool IsAdmin { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether this instance is user interactive.
@@ -54,7 +54,7 @@ namespace SonarrSharp.Models
         /// <value>
         ///   <c>true</c> if this instance is user interactive; otherwise, <c>false</c>.
         /// </value>
-        [J("isUserInteractive")] public bool IsUserInteractive { get; set; }
+        [JsonPropertyName("isUserInteractive")] public bool IsUserInteractive { get; set; }
 
         /// <summary>
         /// Gets or sets the startup path.
@@ -62,7 +62,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The startup path.
         /// </value>
-        [J("startupPath")] public string StartupPath { get; set; }
+        [JsonPropertyName("startupPath")] public string StartupPath { get; set; }
 
         /// <summary>
         /// Gets or sets the application data.
@@ -70,7 +70,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The application data.
         /// </value>
-        [J("appData")] public string AppData { get; set; }
+        [JsonPropertyName("appData")] public string AppData { get; set; }
 
         /// <summary>
         /// Gets or sets the os version.
@@ -78,7 +78,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The os version.
         /// </value>
-        [J("osVersion")] public string OsVersion { get; set; }
+        [JsonPropertyName("osVersion")] public string OsVersion { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether this instance is mono.
@@ -86,7 +86,7 @@ namespace SonarrSharp.Models
         /// <value>
         ///   <c>true</c> if this instance is mono; otherwise, <c>false</c>.
         /// </value>
-        [J("isMono")] public bool IsMono { get; set; }
+        [JsonPropertyName("isMono")] public bool IsMono { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether this instance is linux.
@@ -94,7 +94,7 @@ namespace SonarrSharp.Models
         /// <value>
         ///   <c>true</c> if this instance is linux; otherwise, <c>false</c>.
         /// </value>
-        [J("isLinux")] public bool IsLinux { get; set; }
+        [JsonPropertyName("isLinux")] public bool IsLinux { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether this instance is windows.
@@ -102,7 +102,7 @@ namespace SonarrSharp.Models
         /// <value>
         ///   <c>true</c> if this instance is windows; otherwise, <c>false</c>.
         /// </value>
-        [J("isWindows")] public bool IsWindows { get; set; }
+        [JsonPropertyName("isWindows")] public bool IsWindows { get; set; }
 
         /// <summary>
         /// Gets or sets the branch.
@@ -110,7 +110,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The branch.
         /// </value>
-        [J("branch")] public string Branch { get; set; }
+        [JsonPropertyName("branch")] public string Branch { get; set; }
 
         /// <summary>
         /// Gets or sets the authentication.
@@ -118,7 +118,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The authentication.
         /// </value>
-        [J("authentication")] public string Authentication { get; set; }
+        [JsonPropertyName("authentication")] public string Authentication { get; set; }
 
         /// <summary>
         /// Gets or sets the start of week.
@@ -126,7 +126,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The start of week.
         /// </value>
-        [J("startOfWeek")] public int StartOfWeek { get; set; }
+        [JsonPropertyName("startOfWeek")] public int StartOfWeek { get; set; }
 
         /// <summary>
         /// Gets or sets the URL base.
@@ -134,6 +134,6 @@ namespace SonarrSharp.Models
         /// <value>
         /// The URL base.
         /// </value>
-        [J("urlBase")] public string UrlBase { get; set; }
+        [JsonPropertyName("urlBase")] public string UrlBase { get; set; }
     }
 }

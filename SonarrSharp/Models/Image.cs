@@ -1,9 +1,10 @@
-﻿using SonarrSharp.Enum;
-using J = Newtonsoft.Json.JsonPropertyAttribute;
+using SonarrSharp.Enum;
+
+using System.Text.Json.Serialization;
 
 namespace SonarrSharp.Models
 {
-    /// <summary>
+	/// <summary>
     /// 
     /// </summary>
     public partial class Image
@@ -14,7 +15,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The type of the cover.
         /// </value>
-        [J("coverType")] public CoverType CoverType { get; set; }
+        [JsonPropertyName("coverType")] public CoverType CoverType { get; set; }
 
         /// <summary>
         /// Gets or sets the URL.
@@ -22,6 +23,6 @@ namespace SonarrSharp.Models
         /// <value>
         /// The URL.
         /// </value>
-        [J("url")] public string Url { get; set; }
+        [JsonPropertyName("url")] public string Url { get; set; }
     }
 }

@@ -1,4 +1,4 @@
-﻿using J = Newtonsoft.Json.JsonPropertyAttribute;
+using System.Text.Json.Serialization;
 
 namespace SonarrSharp.Models
 {
@@ -13,7 +13,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The value.
         /// </value>
-        [J("value")] public Value Value { get; set; }
+        [JsonPropertyName("value")] public Value Value { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether this instance is loaded.
@@ -21,6 +21,6 @@ namespace SonarrSharp.Models
         /// <value>
         ///   <c>true</c> if this instance is loaded; otherwise, <c>false</c>.
         /// </value>
-        [J("isLoaded")] public bool IsLoaded { get; set; }
+        [JsonPropertyName("isLoaded")] public bool IsLoaded { get; set; }
     }
 }

@@ -1,16 +1,17 @@
-﻿using Newtonsoft.Json;
 using SonarrSharp.Helpers;
+
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace SonarrSharp.Endpoints.History
 {
     /// <summary>
     /// History endpoint client
-    /// </summary>
-    public class History : IHistory
+	/// </summary>
+	public class History : IHistory
     {
-        private SonarrClient _sonarrClient;
+        private readonly SonarrClient _sonarrClient;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="History"/> class.
@@ -38,7 +39,7 @@ namespace SonarrSharp.Endpoints.History
             sb.Append($"&sortDir={sortDir}");
 
             var json = await _sonarrClient.GetJson($"/history{sb.ToString()}");
-            return await Task.Run(() => JsonConvert.DeserializeObject<Models.History>(json, Converter.Settings));
+            return await Task.Run(() => JsonSerializer.Deserialize<Models.History>(json, Converter.Settings));
         }
     }
 }

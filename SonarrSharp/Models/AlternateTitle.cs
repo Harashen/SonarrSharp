@@ -1,4 +1,4 @@
-﻿using J = Newtonsoft.Json.JsonPropertyAttribute;
+using System.Text.Json.Serialization;
 
 namespace SonarrSharp.Endpoints.Series.Data
 {
@@ -13,7 +13,7 @@ namespace SonarrSharp.Endpoints.Series.Data
         /// <value>
         /// The title.
         /// </value>
-        [J("title")] public string Title { get; set; }
+        [JsonPropertyName("title")] public string Title { get; set; }
 
         /// <summary>
         /// Gets or sets the season number.
@@ -21,6 +21,6 @@ namespace SonarrSharp.Endpoints.Series.Data
         /// <value>
         /// The season number.
         /// </value>
-        [J("seasonNumber")] public int SeasonNumber { get; set; }
+        [JsonPropertyName("seasonNumber")] public int SeasonNumber { get; set; }
     }
 }

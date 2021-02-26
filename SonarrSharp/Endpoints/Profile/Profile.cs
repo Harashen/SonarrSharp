@@ -1,16 +1,17 @@
-﻿using Newtonsoft.Json;
 using SonarrSharp.Helpers;
+
 using System.Collections.Generic;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace SonarrSharp.Endpoints.Profile
 {
     /// <summary>
     /// Profile endpoint client
-    /// </summary>
-    public class Profile : IProfile
+	/// </summary>
+	public class Profile : IProfile
     {
-        private SonarrClient _sonarrClient;
+        private readonly SonarrClient _sonarrClient;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Profile"/> class.
@@ -28,7 +29,7 @@ namespace SonarrSharp.Endpoints.Profile
         public async Task<List<Models.Profile>> GetProfiles()
         {
             var json = await _sonarrClient.GetJson($"/profile");
-            return await Task.Run(() => JsonConvert.DeserializeObject<List<Models.Profile>>(json, Converter.Settings));
+            return await Task.Run(() => JsonSerializer.Deserialize<List<Models.Profile>>(json, Converter.Settings));
         }
     }
 }

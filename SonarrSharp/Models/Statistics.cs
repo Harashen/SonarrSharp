@@ -1,5 +1,5 @@
-﻿using System;
-using J = Newtonsoft.Json.JsonPropertyAttribute;
+using System;
+using System.Text.Json.Serialization;
 
 namespace SonarrSharp.Models
 {
@@ -14,7 +14,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The previous airing.
         /// </value>
-        [J("previousAiring")] public DateTimeOffset PreviousAiring { get; set; }
+        [JsonPropertyName("previousAiring")] public DateTimeOffset PreviousAiring { get; set; }
 
         /// <summary>
         /// Gets or sets the episode file count.
@@ -22,7 +22,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The episode file count.
         /// </value>
-        [J("episodeFileCount")] public int EpisodeFileCount { get; set; }
+        [JsonPropertyName("episodeFileCount")] public int EpisodeFileCount { get; set; }
 
         /// <summary>
         /// Gets or sets the episode count.
@@ -30,7 +30,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The episode count.
         /// </value>
-        [J("episodeCount")] public int EpisodeCount { get; set; }
+        [JsonPropertyName("episodeCount")] public int EpisodeCount { get; set; }
 
         /// <summary>
         /// Gets or sets the total episode count.
@@ -38,7 +38,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The total episode count.
         /// </value>
-        [J("totalEpisodeCount")] public int TotalEpisodeCount { get; set; }
+        [JsonPropertyName("totalEpisodeCount")] public int TotalEpisodeCount { get; set; }
 
         /// <summary>
         /// Gets or sets the size on disk.
@@ -46,7 +46,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The size on disk.
         /// </value>
-        [J("sizeOnDisk")] public long SizeOnDisk { get; set; }
+        [JsonPropertyName("sizeOnDisk")] public long SizeOnDisk { get; set; }
 
         /// <summary>
         /// Gets or sets the percent of episodes.
@@ -54,6 +54,6 @@ namespace SonarrSharp.Models
         /// <value>
         /// The percent of episodes.
         /// </value>
-        [J("percentOfEpisodes")] public double PercentOfEpisodes { get; set; }
+        [JsonPropertyName("percentOfEpisodes")] public double PercentOfEpisodes { get; set; }
     }
 }

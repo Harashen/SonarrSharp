@@ -1,16 +1,17 @@
-﻿using Newtonsoft.Json;
 using SonarrSharp.Helpers;
+
 using System.Collections.Generic;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace SonarrSharp.Endpoints.QualityDefinition
 {
     /// <summary>
     /// QualityDefinition endpoint client
-    /// </summary>
-    public class QualityDefinition : IQualityDefinition
+	/// </summary>
+	public class QualityDefinition : IQualityDefinition
     {
-        private SonarrClient _sonarrClient;
+        private readonly SonarrClient _sonarrClient;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="QualityDefinition"/> class.
@@ -28,7 +29,7 @@ namespace SonarrSharp.Endpoints.QualityDefinition
         public async Task<List<Models.QualityDefinition>> GetQualityDefinitions()
         {
             var json = await _sonarrClient.GetJson("/qualityDefinition");
-            return await Task.Run(() => JsonConvert.DeserializeObject<List<Models.QualityDefinition>>(json, Converter.Settings));
+            return await Task.Run(() => JsonSerializer.Deserialize<List<Models.QualityDefinition>>(json, Converter.Settings));
         }
 
         /// <summary>
@@ -38,7 +39,7 @@ namespace SonarrSharp.Endpoints.QualityDefinition
         public async Task<Models.QualityDefinition> GetQualityDefinition(int id)
         {
             var json = await _sonarrClient.GetJson($"/qualityDefinition/id={id}");
-            return await Task.Run(() => JsonConvert.DeserializeObject<Models.QualityDefinition>(json, Converter.Settings));
+            return await Task.Run(() => JsonSerializer.Deserialize<Models.QualityDefinition>(json, Converter.Settings));
         }
 
         /// <summary>
@@ -48,8 +49,8 @@ namespace SonarrSharp.Endpoints.QualityDefinition
         /// <returns></returns>
         public async Task<Models.QualityDefinition> UpdateQualityDefinition(Models.QualityDefinition qualityDefinition)
         {
-            var json = await _sonarrClient.PostJson("/qualityDefinition", JsonConvert.SerializeObject(qualityDefinition, Converter.Settings), "PUT");
-            return await Task.Run(() => JsonConvert.DeserializeObject<Models.QualityDefinition>(json, Converter.Settings));
+            var json = await _sonarrClient.PostJson("/qualityDefinition", JsonSerializer.Serialize(qualityDefinition, Converter.Settings), "PUT");
+            return await Task.Run(() => JsonSerializer.Deserialize<Models.QualityDefinition>(json, Converter.Settings));
         }
     }
 }

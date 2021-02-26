@@ -1,6 +1,7 @@
-﻿using Newtonsoft.Json;
 using SonarrSharp.Enum;
+
 using System;
+using System.Text.Json;
 
 namespace SonarrSharp.Extensions
 {
@@ -29,32 +30,32 @@ namespace SonarrSharp.Extensions
             }
         }
 
-        public static QualityName ReadJson(JsonReader reader, JsonSerializer serializer)
+        public static QualityName ReadJson(Utf8JsonReader reader)
         {
-            var str = serializer.Deserialize<string>(reader);
+            var str = JsonSerializer.Deserialize<string>(ref reader);
             var maybeValue = ValueForString(str);
             if (maybeValue.HasValue) return maybeValue.Value;
             throw new Exception("Unknown enum case " + str);
         }
 
-        public static void WriteJson(this QualityName value, JsonWriter writer, JsonSerializer serializer)
+        public static void WriteJson(this QualityName value, Utf8JsonWriter writer)
         {
             switch (value)
             {
-                case QualityName.Unknown: serializer.Serialize(writer, "Unknown"); break;
-                case QualityName.SDTV: serializer.Serialize(writer, "SDTV"); break;
-                case QualityName.WebDL480P: serializer.Serialize(writer, "WEBDL-480p"); break;
-                case QualityName.Dvd: serializer.Serialize(writer, "DVD"); break;
-                case QualityName.HDTV720P: serializer.Serialize(writer, "HDTV-720p"); break;
-                case QualityName.HDTV1080P: serializer.Serialize(writer, "HDTV-1080p"); break;
-                case QualityName.RawHd: serializer.Serialize(writer, "Raw-HD"); break;
-                case QualityName.WebDL720P: serializer.Serialize(writer, "WEBDL-720p"); break;
-                case QualityName.Bluray720P: serializer.Serialize(writer, "Bluray-720p"); break;
-                case QualityName.WebDL1080P: serializer.Serialize(writer, "WEBDL-1080p"); break;
-                case QualityName.Bluray1080P: serializer.Serialize(writer, "Bluray-1080p"); break;
-                case QualityName.HDTV2160P: serializer.Serialize(writer, "HDTV-2160p"); break;
-                case QualityName.WebDL2160P: serializer.Serialize(writer, "WEBDL-2160p"); break;
-                case QualityName.Bluray2160P: serializer.Serialize(writer, "Bluray-2160p"); break;
+                case QualityName.Unknown: JsonSerializer.Serialize(writer, "Unknown"); break;
+                case QualityName.SDTV: JsonSerializer.Serialize(writer, "SDTV"); break;
+                case QualityName.WebDL480P: JsonSerializer.Serialize(writer, "WEBDL-480p"); break;
+                case QualityName.Dvd: JsonSerializer.Serialize(writer, "DVD"); break;
+                case QualityName.HDTV720P: JsonSerializer.Serialize(writer, "HDTV-720p"); break;
+                case QualityName.HDTV1080P: JsonSerializer.Serialize(writer, "HDTV-1080p"); break;
+                case QualityName.RawHd: JsonSerializer.Serialize(writer, "Raw-HD"); break;
+                case QualityName.WebDL720P: JsonSerializer.Serialize(writer, "WEBDL-720p"); break;
+                case QualityName.Bluray720P: JsonSerializer.Serialize(writer, "Bluray-720p"); break;
+                case QualityName.WebDL1080P: JsonSerializer.Serialize(writer, "WEBDL-1080p"); break;
+                case QualityName.Bluray1080P: JsonSerializer.Serialize(writer, "Bluray-1080p"); break;
+                case QualityName.HDTV2160P: JsonSerializer.Serialize(writer, "HDTV-2160p"); break;
+                case QualityName.WebDL2160P: JsonSerializer.Serialize(writer, "WEBDL-2160p"); break;
+                case QualityName.Bluray2160P: JsonSerializer.Serialize(writer, "Bluray-2160p"); break;
 
             }
         }

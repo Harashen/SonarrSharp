@@ -1,6 +1,7 @@
-﻿using Newtonsoft.Json;
 using SonarrSharp.Enum;
+
 using System;
+using System.Text.Json;
 
 namespace SonarrSharp.Extensions
 {
@@ -16,20 +17,20 @@ namespace SonarrSharp.Extensions
             }
         }
 
-        public static Status ReadJson(JsonReader reader, JsonSerializer serializer)
+        public static Status ReadJson(Utf8JsonReader reader)
         {
-            var str = serializer.Deserialize<string>(reader);
+            var str = JsonSerializer.Deserialize<string>(ref reader);
             var maybeValue = ValueForString(str);
             if (maybeValue.HasValue) return maybeValue.Value;
             throw new Exception("Unknown enum case " + str);
         }
 
-        public static void WriteJson(this Status value, JsonWriter writer, JsonSerializer serializer)
+        public static void WriteJson(this Status value, Utf8JsonWriter writer)
         {
             switch (value)
             {
-                case Status.Continuing: serializer.Serialize(writer, "continuing"); break;
-                case Status.Ended: serializer.Serialize(writer, "ended"); break;
+                case Status.Continuing: JsonSerializer.Serialize(writer, "continuing"); break;
+                case Status.Ended: JsonSerializer.Serialize(writer, "ended"); break;
             }
         }
     }

@@ -1,6 +1,6 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
-using J = Newtonsoft.Json.JsonPropertyAttribute;
+using System.Text.Json.Serialization;
 
 namespace SonarrSharp.Models
 {
@@ -15,7 +15,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The unique identifier.
         /// </value>
-        [J("guid")] public string Guid { get; set; }
+        [JsonPropertyName("guid")] public string Guid { get; set; }
 
         /// <summary>
         /// Gets or sets the quality.
@@ -23,7 +23,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The quality.
         /// </value>
-        [J("quality")] public ReleaseQuality Quality { get; set; }
+        [JsonPropertyName("quality")] public ReleaseQuality Quality { get; set; }
 
         /// <summary>
         /// Gets or sets the age.
@@ -31,7 +31,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The age.
         /// </value>
-        [J("age")] public long Age { get; set; }
+        [JsonPropertyName("age")] public long Age { get; set; }
 
         /// <summary>
         /// Gets or sets the size.
@@ -39,7 +39,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The size.
         /// </value>
-        [J("size")] public long Size { get; set; }
+        [JsonPropertyName("size")] public long Size { get; set; }
 
         /// <summary>
         /// Gets or sets the indexer.
@@ -47,7 +47,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The indexer.
         /// </value>
-        [J("indexer")] public string Indexer { get; set; }
+        [JsonPropertyName("indexer")] public string Indexer { get; set; }
 
         /// <summary>
         /// Gets or sets the release group.
@@ -55,7 +55,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The release group.
         /// </value>
-        [J("releaseGroup")] public string ReleaseGroup { get; set; }
+        [JsonPropertyName("releaseGroup")] public string ReleaseGroup { get; set; }
 
         /// <summary>
         /// Gets or sets the title.
@@ -63,7 +63,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The title.
         /// </value>
-        [J("title")] public string Title { get; set; }
+        [JsonPropertyName("title")] public string Title { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether [full season].
@@ -71,7 +71,7 @@ namespace SonarrSharp.Models
         /// <value>
         ///   <c>true</c> if [full season]; otherwise, <c>false</c>.
         /// </value>
-        [J("fullSeason")] public bool FullSeason { get; set; }
+        [JsonPropertyName("fullSeason")] public bool FullSeason { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether [scene source].
@@ -79,7 +79,7 @@ namespace SonarrSharp.Models
         /// <value>
         ///   <c>true</c> if [scene source]; otherwise, <c>false</c>.
         /// </value>
-        [J("sceneSource")] public bool SceneSource { get; set; }
+        [JsonPropertyName("sceneSource")] public bool SceneSource { get; set; }
 
         /// <summary>
         /// Gets or sets the season number.
@@ -87,7 +87,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The season number.
         /// </value>
-        [J("seasonNumber")] public int SeasonNumber { get; set; }
+        [JsonPropertyName("seasonNumber")] public int SeasonNumber { get; set; }
 
         /// <summary>
         /// Gets or sets the language.
@@ -95,7 +95,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The language.
         /// </value>
-        [J("language")] public string Language { get; set; }
+        [JsonPropertyName("language")] public string Language { get; set; }
 
         /// <summary>
         /// Gets or sets the series title.
@@ -103,7 +103,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The series title.
         /// </value>
-        [J("seriesTitle")] public string SeriesTitle { get; set; }
+        [JsonPropertyName("seriesTitle")] public string SeriesTitle { get; set; }
 
         /// <summary>
         /// Gets or sets the episode numbers.
@@ -111,7 +111,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The episode numbers.
         /// </value>
-        [J("episodeNumbers")] public List<int> EpisodeNumbers { get; set; }
+        [JsonPropertyName("episodeNumbers")] public List<int> EpisodeNumbers { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether this <see cref="Release"/> is approved.
@@ -119,7 +119,7 @@ namespace SonarrSharp.Models
         /// <value>
         ///   <c>true</c> if approved; otherwise, <c>false</c>.
         /// </value>
-        [J("approved")] public bool Approved { get; set; }
+        [JsonPropertyName("approved")] public bool Approved { get; set; }
 
         /// <summary>
         /// Gets or sets the tv rage identifier.
@@ -127,7 +127,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The tv rage identifier.
         /// </value>
-        [J("tvRageId")] public long TvRageId { get; set; }
+        [JsonPropertyName("tvRageId")] public long TvRageId { get; set; }
 
         /// <summary>
         /// Gets or sets the rejections.
@@ -135,7 +135,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The rejections.
         /// </value>
-        [J("rejections")] public List<string> Rejections { get; set; }
+        [JsonPropertyName("rejections")] public List<string> Rejections { get; set; }
 
         /// <summary>
         /// Gets or sets the publish date.
@@ -143,7 +143,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The publish date.
         /// </value>
-        [J("publishDate")] public DateTimeOffset PublishDate { get; set; }
+        [JsonPropertyName("publishDate")] public DateTimeOffset PublishDate { get; set; }
 
         /// <summary>
         /// Gets or sets the download URL.
@@ -151,7 +151,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The download URL.
         /// </value>
-        [J("downloadUrl")] public string DownloadUrl { get; set; }
+        [JsonPropertyName("downloadUrl")] public string DownloadUrl { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether [download allowed].
@@ -159,6 +159,6 @@ namespace SonarrSharp.Models
         /// <value>
         ///   <c>true</c> if [download allowed]; otherwise, <c>false</c>.
         /// </value>
-        [J("downloadAllowed")] public bool DownloadAllowed { get; set; }
+        [JsonPropertyName("downloadAllowed")] public bool DownloadAllowed { get; set; }
     }
 }

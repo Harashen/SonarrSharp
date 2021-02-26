@@ -1,4 +1,4 @@
-﻿using J = Newtonsoft.Json.JsonPropertyAttribute;
+using System.Text.Json.Serialization;
 
 namespace SonarrSharp.Models
 {
@@ -13,7 +13,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The quality.
         /// </value>
-        [J("quality")] public QualityQuality Quality { get; set; }
+        [JsonPropertyName("quality")] public QualityQuality Quality { get; set; }
 
         /// <summary>
         /// Gets or sets the revision.
@@ -21,6 +21,6 @@ namespace SonarrSharp.Models
         /// <value>
         /// The revision.
         /// </value>
-        [J("revision")] public Revision Revision { get; set; }
+        [JsonPropertyName("revision")] public Revision Revision { get; set; }
     }
 }

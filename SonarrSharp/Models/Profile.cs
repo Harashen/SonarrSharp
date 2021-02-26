@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using J = Newtonsoft.Json.JsonPropertyAttribute;
+using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace SonarrSharp.Models
 {
@@ -14,7 +14,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The name.
         /// </value>
-        [J("name")] public string Name { get; set; }
+        [JsonPropertyName("name")] public string Name { get; set; }
 
         /// <summary>
         /// Gets or sets the cutoff.
@@ -22,7 +22,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The cutoff.
         /// </value>
-        [J("cutoff")] public Cutoff Cutoff { get; set; }
+        [JsonPropertyName("cutoff")] public Cutoff Cutoff { get; set; }
 
         /// <summary>
         /// Gets or sets the items.
@@ -30,7 +30,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The items.
         /// </value>
-        [J("items")] public List<Item> Items { get; set; }
+        [JsonPropertyName("items")] public List<Item> Items { get; set; }
 
         /// <summary>
         /// Gets or sets the identifier.
@@ -38,6 +38,6 @@ namespace SonarrSharp.Models
         /// <value>
         /// The identifier.
         /// </value>
-        [J("id")] public int Id { get; set; }
+        [JsonPropertyName("id")] public int Id { get; set; }
     }
 }

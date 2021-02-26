@@ -1,17 +1,18 @@
-﻿using Newtonsoft.Json;
 using SonarrSharp.Helpers;
+
 using System;
 using System.Collections.Generic;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace SonarrSharp.Endpoints.Calendar
 {
     /// <summary>
     /// Calendar endpoint client
-    /// </summary>
-    public class Calendar : ICalendar
+	/// </summary>
+	public class Calendar : ICalendar
     {
-        private SonarrClient _sonarrClient;
+        private readonly SonarrClient _sonarrClient;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Calendar"/> class.
@@ -29,7 +30,7 @@ namespace SonarrSharp.Endpoints.Calendar
         public async Task<List<Models.Calendar>> GetCalendar()
         {
             var json = await _sonarrClient.GetJson($"/calendar");
-            return await Task.Run(() => JsonConvert.DeserializeObject<List<Models.Calendar>>(json, Converter.Settings));
+            return await Task.Run(() => JsonSerializer.Deserialize<List<Models.Calendar>>(json, Converter.Settings));
         }
 
         /// <summary>
@@ -41,7 +42,7 @@ namespace SonarrSharp.Endpoints.Calendar
         public async Task<List<Models.Calendar>> GetCalendar(DateTime start, DateTime end)
         {
             var json = await _sonarrClient.GetJson($"/calendar?start={start.ToString("yyyy-MM-dd")}&end={end.ToString("yyyy-MM-dd")}");
-            return await Task.Run(() => JsonConvert.DeserializeObject<List<Models.Calendar>>(json, Converter.Settings));
+            return await Task.Run(() => JsonSerializer.Deserialize<List<Models.Calendar>>(json, Converter.Settings));
         }
     }
 }

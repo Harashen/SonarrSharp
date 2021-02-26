@@ -1,15 +1,16 @@
-﻿using Newtonsoft.Json;
 using SonarrSharp.Helpers;
+
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace SonarrSharp.Endpoints.Parse
 {
     /// <summary>
     /// Parse endpoint client
-    /// </summary>
-    public class Parse : IParse
+	/// </summary>
+	public class Parse : IParse
     {
-        private SonarrClient _sonarrClient;
+        private readonly SonarrClient _sonarrClient;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Parse"/> class.
@@ -28,7 +29,7 @@ namespace SonarrSharp.Endpoints.Parse
         public async Task<Models.Parse> ParseTitle(string title)
         {
             var json = await _sonarrClient.GetJson($"/parse?title={title}");
-            return await Task.Run(() => JsonConvert.DeserializeObject<Models.Parse>(json, Converter.Settings));
+            return await Task.Run(() => JsonSerializer.Deserialize<Models.Parse>(json, Converter.Settings));
         }
 
         /// <summary>
@@ -39,7 +40,7 @@ namespace SonarrSharp.Endpoints.Parse
         public async Task<Models.Parse> ParsePath(string path)
         {
             var json = await _sonarrClient.GetJson($"/parse?path={path}");
-            return await Task.Run(() => JsonConvert.DeserializeObject<Models.Parse>(json, Converter.Settings));
+            return await Task.Run(() => JsonSerializer.Deserialize<Models.Parse>(json, Converter.Settings));
         }
     }
 }

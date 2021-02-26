@@ -1,16 +1,17 @@
-﻿using Newtonsoft.Json;
 using SonarrSharp.Helpers;
+
 using System.Collections.Generic;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace SonarrSharp.Endpoints.EpisodeFile
 {
     /// <summary>
     /// EpisodeFile endpoint client
-    /// </summary>
-    class EpisodeFile : IEpisodeFile
+	/// </summary>
+	class EpisodeFile : IEpisodeFile
     {
-        private SonarrClient _sonarrClient;
+        private readonly SonarrClient _sonarrClient;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="EpisodeFile"/> class.
@@ -29,7 +30,7 @@ namespace SonarrSharp.Endpoints.EpisodeFile
         public async Task<List<Models.EpisodeFile>> GetEpisodeFiles(int seriesId)
         {
             var json = await _sonarrClient.GetJson($"/episodeFile?seriesId={seriesId}");
-            return await Task.Run(() => JsonConvert.DeserializeObject<List<Models.EpisodeFile>>(json, Converter.Settings));
+            return await Task.Run(() => JsonSerializer.Deserialize<List<Models.EpisodeFile>>(json, Converter.Settings));
         }
 
         /// <summary>
@@ -40,7 +41,7 @@ namespace SonarrSharp.Endpoints.EpisodeFile
         public async Task<Models.EpisodeFile> GetEpisodeFile(int episodeId)
         {
             var json = await _sonarrClient.GetJson($"/episodeFile/id={episodeId}");
-            return await Task.Run(() => JsonConvert.DeserializeObject<Models.EpisodeFile>(json, Converter.Settings));
+            return await Task.Run(() => JsonSerializer.Deserialize<Models.EpisodeFile>(json, Converter.Settings));
         }
 
         /// <summary>

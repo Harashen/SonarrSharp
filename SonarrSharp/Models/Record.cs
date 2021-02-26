@@ -1,5 +1,5 @@
-﻿using System;
-using J = Newtonsoft.Json.JsonPropertyAttribute;
+using System;
+using System.Text.Json.Serialization;
 
 namespace SonarrSharp.Models
 {
@@ -14,7 +14,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The episode identifier.
         /// </value>
-        [J("episodeId")] public int EpisodeId { get; set; }
+        [JsonPropertyName("episodeId")] public int EpisodeId { get; set; }
 
         /// <summary>
         /// Gets or sets the series identifier.
@@ -22,7 +22,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The series identifier.
         /// </value>
-        [J("seriesId")] public int SeriesId { get; set; }
+        [JsonPropertyName("seriesId")] public int SeriesId { get; set; }
 
         /// <summary>
         /// Gets or sets the source title.
@@ -30,7 +30,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The source title.
         /// </value>
-        [J("sourceTitle")] public string SourceTitle { get; set; }
+        [JsonPropertyName("sourceTitle")] public string SourceTitle { get; set; }
 
         /// <summary>
         /// Gets or sets the quality.
@@ -38,7 +38,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The quality.
         /// </value>
-        [J("quality")] public RecordQuality Quality { get; set; }
+        [JsonPropertyName("quality")] public RecordQuality Quality { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether [quality cutoff not met].
@@ -46,7 +46,7 @@ namespace SonarrSharp.Models
         /// <value>
         ///   <c>true</c> if [quality cutoff not met]; otherwise, <c>false</c>.
         /// </value>
-        [J("qualityCutoffNotMet")] public bool QualityCutoffNotMet { get; set; }
+        [JsonPropertyName("qualityCutoffNotMet")] public bool QualityCutoffNotMet { get; set; }
 
         /// <summary>
         /// Gets or sets the date.
@@ -54,7 +54,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The date.
         /// </value>
-        [J("date")] public DateTimeOffset Date { get; set; }
+        [JsonPropertyName("date")] public DateTimeOffset Date { get; set; }
 
         /// <summary>
         /// Gets or sets the download identifier.
@@ -62,7 +62,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The download identifier.
         /// </value>
-        [J("downloadId")] public string DownloadId { get; set; }
+        [JsonPropertyName("downloadId")] public string DownloadId { get; set; }
 
         /// <summary>
         /// Gets or sets the type of the event.
@@ -70,7 +70,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The type of the event.
         /// </value>
-        [J("eventType")] public string EventType { get; set; }
+        [JsonPropertyName("eventType")] public string EventType { get; set; }
 
         /// <summary>
         /// Gets or sets the data.
@@ -78,7 +78,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The data.
         /// </value>
-        [J("data")] public Data Data { get; set; }
+        [JsonPropertyName("data")] public Data Data { get; set; }
 
         /// <summary>
         /// Gets or sets the episode.
@@ -86,7 +86,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The episode.
         /// </value>
-        [J("episode")] public Episode Episode { get; set; }
+        [JsonPropertyName("episode")] public Episode Episode { get; set; }
 
         /// <summary>
         /// Gets or sets the series.
@@ -94,7 +94,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The series.
         /// </value>
-        [J("series")] public Series Series { get; set; }
+        [JsonPropertyName("series")] public Series Series { get; set; }
 
         /// <summary>
         /// Gets or sets the identifier.
@@ -102,6 +102,6 @@ namespace SonarrSharp.Models
         /// <value>
         /// The identifier.
         /// </value>
-        [J("id")] public int Id { get; set; }
+        [JsonPropertyName("id")] public int Id { get; set; }
     }
 }

@@ -1,6 +1,7 @@
-﻿using SonarrSharp.Enum;
+using SonarrSharp.Enum;
+
 using System;
-using J = Newtonsoft.Json.JsonPropertyAttribute;
+using System.Text.Json.Serialization;
 
 namespace SonarrSharp.Models
 {
@@ -15,7 +16,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The name.
         /// </value>
-        [J("name")] public string Name { get; set; }
+        [JsonPropertyName("name")] public string Name { get; set; }
 
         /// <summary>
         /// Gets or sets the path.
@@ -23,7 +24,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The path.
         /// </value>
-        [J("path")] public string Path { get; set; }
+        [JsonPropertyName("path")] public string Path { get; set; }
 
         /// <summary>
         /// Gets or sets the type.
@@ -31,7 +32,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The type.
         /// </value>
-        [J("type")] public SystemBackupType Type { get; set; }
+        [JsonPropertyName("type")] public SystemBackupType Type { get; set; }
 
         /// <summary>
         /// Gets or sets the time.
@@ -39,7 +40,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The time.
         /// </value>
-        [J("time")] public DateTimeOffset Time { get; set; }
+        [JsonPropertyName("time")] public DateTimeOffset Time { get; set; }
 
         /// <summary>
         /// Gets or sets the identifier.
@@ -47,6 +48,6 @@ namespace SonarrSharp.Models
         /// <value>
         /// The identifier.
         /// </value>
-        [J("id")] public int Id { get; set; }
+        [JsonPropertyName("id")] public int Id { get; set; }
     }
 }

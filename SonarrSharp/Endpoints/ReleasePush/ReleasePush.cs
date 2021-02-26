@@ -1,18 +1,19 @@
-﻿using Newtonsoft.Json;
 using SonarrSharp.Enum;
 using SonarrSharp.Helpers;
+
 using System;
 using System.Collections.Generic;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace SonarrSharp.Endpoints.ReleasePush
 {
     /// <summary>
     /// ReleasePush endpoint client
-    /// </summary>
-    public class ReleasePush : IReleasePush
+	/// </summary>
+	public class ReleasePush : IReleasePush
     {
-        private SonarrClient _sonarrClient;
+        private readonly SonarrClient _sonarrClient;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ReleasePush"/> class.
@@ -33,7 +34,7 @@ namespace SonarrSharp.Endpoints.ReleasePush
         /// <returns></returns>
         public async Task<List<Models.ReleasePush>> PushRelease(string title, string downloadUrl, Protocol protocol, DateTime date)
         {
-            string parameter = JsonConvert.SerializeObject(new Dictionary<string, object>
+            string parameter = JsonSerializer.Serialize(new Dictionary<string, object>
             {
                 ["title"] = title,
                 ["downloadUrl"] = downloadUrl,
@@ -42,7 +43,7 @@ namespace SonarrSharp.Endpoints.ReleasePush
             });
 
             var json = await _sonarrClient.PostJson($"/releasePush", parameter, "POST");
-            return await Task.Run(() => JsonConvert.DeserializeObject<List<Models.ReleasePush>>(json, Converter.Settings));
+            return await Task.Run(() => JsonSerializer.Deserialize<List<Models.ReleasePush>>(json, Converter.Settings));
         }
     }
 }

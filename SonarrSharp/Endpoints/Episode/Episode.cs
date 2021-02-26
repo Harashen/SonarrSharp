@@ -1,16 +1,17 @@
-﻿using Newtonsoft.Json;
 using SonarrSharp.Helpers;
+
 using System.Collections.Generic;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace SonarrSharp.Endpoints.Episode
 {
     /// <summary>
     /// Episode endpoint client
-    /// </summary>
-    public class Episode : IEpisode
+	/// </summary>
+	public class Episode : IEpisode
     {
-        private SonarrClient _sonarrClient;
+        private readonly SonarrClient _sonarrClient;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Episode"/> class.
@@ -29,7 +30,7 @@ namespace SonarrSharp.Endpoints.Episode
         public async Task<List<Models.Episode>> GetEpisodes(int seriesId)
         {
             var json = await _sonarrClient.GetJson($"/episode?seriesId={seriesId}");
-            return await Task.Run(() => JsonConvert.DeserializeObject<List<Models.Episode>>(json, Converter.Settings));
+            return await Task.Run(() => JsonSerializer.Deserialize<List<Models.Episode>>(json, Converter.Settings));
         }
 
         /// <summary>
@@ -40,7 +41,7 @@ namespace SonarrSharp.Endpoints.Episode
         public async Task<Models.Episode> GetEpisode(int episodeId)
         {
             var json = await _sonarrClient.GetJson($"/episode/id={episodeId}");
-            return await Task.Run(() => JsonConvert.DeserializeObject<Models.Episode>(json, Converter.Settings));
+            return await Task.Run(() => JsonSerializer.Deserialize<Models.Episode>(json, Converter.Settings));
         }
 
         /// <summary>
@@ -50,8 +51,8 @@ namespace SonarrSharp.Endpoints.Episode
         /// <returns></returns>
         public async Task<Models.Episode> UpdateEpisode(Models.Episode episode)
         {
-            var json = await _sonarrClient.PostJson("/episode", JsonConvert.SerializeObject(episode, Converter.Settings), "PUT");
-            return await Task.Run(() => JsonConvert.DeserializeObject<Models.Episode>(json, Converter.Settings));
+            var json = await _sonarrClient.PostJson("/episode", JsonSerializer.Serialize(episode, Converter.Settings), "PUT");
+            return await Task.Run(() => JsonSerializer.Deserialize<Models.Episode>(json, Converter.Settings));
         }
     }
 }

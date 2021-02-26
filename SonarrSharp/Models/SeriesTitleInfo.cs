@@ -1,4 +1,4 @@
-﻿using J = Newtonsoft.Json.JsonPropertyAttribute;
+using System.Text.Json.Serialization;
 
 namespace SonarrSharp.Models
 {
@@ -13,7 +13,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The title.
         /// </value>
-        [J("title")] public string Title { get; set; }
+        [JsonPropertyName("title")] public string Title { get; set; }
 
         /// <summary>
         /// Gets or sets the title without year.
@@ -21,7 +21,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The title without year.
         /// </value>
-        [J("titleWithoutYear")] public string TitleWithoutYear { get; set; }
+        [JsonPropertyName("titleWithoutYear")] public string TitleWithoutYear { get; set; }
 
         /// <summary>
         /// Gets or sets the year.
@@ -29,6 +29,6 @@ namespace SonarrSharp.Models
         /// <value>
         /// The year.
         /// </value>
-        [J("year")] public int Year { get; set; }
+        [JsonPropertyName("year")] public int Year { get; set; }
     }
 }
