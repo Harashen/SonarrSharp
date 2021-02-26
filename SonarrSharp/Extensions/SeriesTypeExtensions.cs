@@ -21,8 +21,8 @@ namespace SonarrSharp.Extensions
         public static SeriesType ReadJson(Utf8JsonReader reader)
         {
             var str = JsonSerializer.Deserialize<string>(ref reader);
-            if (System.Enum.TryParse(str, out SeriesType type) && System.Enum.IsDefined(typeof(SeriesType), type))
-                return type;
+            var maybeValue = ValueForString(str);            
+            if (maybeValue.HasValue) return maybeValue.Value;
 
             throw new Exception("Unknown SeriesType \"" + str + "\"");
         }

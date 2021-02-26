@@ -61,7 +61,7 @@ namespace SonarrSharpTests.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 8cf46010edd345e8a5414d78a0cbd2ff.
+        ///   Looks up a localized string similar to e2a174aa380945cab8d7fa2658df301a.
         /// </summary>
         internal static string ApiKey {
             get {
@@ -70,7 +70,7 @@ namespace SonarrSharpTests.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to localhost.
+        ///   Looks up a localized string similar to 192.168.1.142.
         /// </summary>
         internal static string Host {
             get {
@@ -79,7 +79,7 @@ namespace SonarrSharpTests.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 8990.
+        ///   Looks up a localized string similar to 8989.
         /// </summary>
         internal static string Port {
             get {
@@ -88,7 +88,7 @@ namespace SonarrSharpTests.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to sonarr.
+        ///   Looks up a localized string similar to .
         /// </summary>
         internal static string UrlBase {
             get {

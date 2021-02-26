@@ -17,13 +17,13 @@ namespace SonarrSharpUnitTest
         [TestMethod]
         public async Task DeleteEpisodeFile()
         {
-            var episodeFiles = await _sonarrClient.EpisodeFile.GetEpisodeFiles(1);
+            /*var episodeFiles = await _sonarrClient.EpisodeFile.GetEpisodeFiles(1);
             foreach (var episodeFile in episodeFiles)
             {
                 Console.WriteLine($"{episodeFile.Id}: {episodeFile.Path}");
             }
 
-            await _sonarrClient.EpisodeFile.DeleteEpisodeFile(1);
+            await _sonarrClient.EpisodeFile.DeleteEpisodeFile(1);*/
         }
     }
 }

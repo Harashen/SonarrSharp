@@ -39,7 +39,7 @@ namespace SonarrSharpUnitTest
         [TestMethod]
         public async Task GetEpisodes()
         {
-            var episodes = await _sonarrClient.Episode.GetEpisodes(1);
+            var episodes = await _sonarrClient.Episode.GetEpisodes(2);
             foreach (var episode in episodes)
             {
                 Console.WriteLine($"{episode.Id}: {episode.Title}");
