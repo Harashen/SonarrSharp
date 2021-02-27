@@ -12,6 +12,8 @@ namespace SonarrSharp.Extensions
             switch (str)
             {
                 case "continuing": return Status.Continuing;
+                case "deleted":  return Status.Deleted;
+                case "upcoming": return Status.Upcoming;
                 case "ended": return Status.Ended;
                 default: return null;
             }
